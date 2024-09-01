@@ -1,19 +1,20 @@
-package com.example.paymentnotification.Controller;
+package com.example.paymentnotification.controller;
 
 import com.example.paymentnotification.service.NotificationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/notifications")
 public class NotificationController {
 
-    @Autowired
-    private NotificationService notificationService;
+    private final NotificationService notificationService;
+
+    public NotificationController(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }
 
     @PostMapping
-    public String sendNotification(@RequestBody String message) {
-        notificationService.sendNotification(message);
-        return "Notification sent.";
+    public void sendNotification(@RequestParam String recipientEmail, @RequestParam String paymentId) {
+        notificationService.sendPaymentNotification(recipientEmail, paymentId);
     }
 }

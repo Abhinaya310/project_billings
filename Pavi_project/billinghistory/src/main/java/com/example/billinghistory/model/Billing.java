@@ -6,13 +6,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class BillingHistory {
+public class Billing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long customerId;
-    private Double amount;
+    private double amount;
     private String description;
-    
+
     // Getters and Setters
 }
