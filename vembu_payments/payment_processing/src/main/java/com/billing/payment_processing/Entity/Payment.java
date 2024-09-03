@@ -1,5 +1,6 @@
 package com.billing.payment_processing.Entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
@@ -9,9 +10,8 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@Entity
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment {
@@ -20,7 +20,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String customerId;
-    private Double amount;
+    private BigDecimal amount;
     private String status;
     private LocalDateTime timestamp;
 
